@@ -20,6 +20,9 @@ lint:
     - git-diff-check
     - trufflehog@3.60.3
 
+    # Bazel
+    - buildifier@6.3.3
+
     # Dockerfile
     - hadolint@2.12.0
 
