@@ -1,2 +1,7 @@
 image:
   file: /.gitpod/Dockerfile
+
+tasks:
+  - name: Build Gazelle
+    init: bazelisk build //:gazelle && exit
+    openMode: tab-after
