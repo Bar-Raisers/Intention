@@ -1,0 +1,13 @@
+syntax = "proto3";
+package accounts;
+option go_package = "github.com/bar-raisers/intention/finance/contracts/accounts/v1";
+
+import "finance/models/transaction.proto";
+
+message CreateTransactionRequest {
+    models.Transaction transaction = 1;
+}
+
+message CreateTransactionResponse {
+
+}
