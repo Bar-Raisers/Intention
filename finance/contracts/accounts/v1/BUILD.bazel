@@ -1,0 +1,29 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
+load("@rules_proto//proto:defs.bzl", "proto_library")
+
+proto_library(
+    name = "v1_proto",
+    srcs = [
+        "create.proto",
+        "service.proto",
+    ],
+    visibility = ["//visibility:public"],
+    deps = ["//finance/models:models_proto"],
+)
+
+go_proto_library(
+    name = "v1_go_proto",
+    compilers = ["@io_bazel_rules_go//proto:go_grpc"],
+    importpath = "github.com/bar-raisers/intention/finance/contracts/accounts/v1",
+    proto = ":v1_proto",
+    visibility = ["//visibility:public"],
+    deps = ["//finance/models"],
+)
+
+go_library(
+    name = "accounts",
+    embed = [":v1_go_proto"],
+    importpath = "github.com/bar-raisers/intention/finance/contracts/accounts/v1",
+    visibility = ["//visibility:public"],
+)
