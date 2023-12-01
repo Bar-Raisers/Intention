@@ -1,0 +1,10 @@
+syntax = "proto3";
+package tasks;
+option go_package = "github.com/bar-raisers/intention/scheduling/contracts/tasks/v1";
+
+message CreateTaskRequest {
+    string name = 1;
+}
+
+message CreateTaskResponse {
+}

@@ -1,0 +1,9 @@
+syntax = "proto3";
+package tasks;
+option go_package = "github.com/bar-raisers/intention/scheduling/contracts/tasks/v1";
+
+import "scheduling/contracts/tasks/v1/create.proto";
+
+service TasksService {
+    rpc CreateTask(CreateTaskRequest) returns (CreateTaskResponse);
+}
