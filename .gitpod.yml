@@ -1,10 +1,16 @@
+# Documentation available at: https://www.gitpod.io/docs/configure/workspaces
+
 image:
   file: /.gitpod/Dockerfile
 
 tasks:
   - name: Build Gazelle
-    init: bazelisk build //:gazelle && exit
+    command: |
+      bazelisk build //:gazelle
+      exit
     openMode: tab-after
   - name: Install Trunk Linters
-    init: trunk install && exit
+    init: |
+      trunk install
+      exit
     openMode: tab-after
