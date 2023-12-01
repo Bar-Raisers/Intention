@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: bazel
+
+spec:
+  containers:
+    - name: accounts
+      image: accounts-image

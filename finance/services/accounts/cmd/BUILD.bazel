@@ -1,4 +1,6 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@rules_oci//oci:defs.bzl", "oci_image", "oci_tarball")
+load("@rules_pkg//pkg:tar.bzl", "pkg_tar")
 
 go_library(
     name = "cmd_lib",
@@ -20,4 +22,22 @@ go_binary(
     name = "cmd",
     embed = [":cmd_lib"],
     visibility = ["//visibility:public"],
+)
+
+pkg_tar(
+    name = "tar",
+    srcs = [":cmd"],
+)
+
+oci_image(
+    name = "accounts.image",
+    base = "@distroless_base",
+    entrypoint = ["/app"],
+    tars = [":tar"],
+)
+
+oci_tarball(
+    name = "accounts.tar",
+    image = ":accounts.image",
+    repo_tags = ["accounts:latest"],
 )

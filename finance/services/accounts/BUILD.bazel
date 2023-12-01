@@ -1,0 +1,4 @@
+alias(
+    name = "accounts",
+    actual = "//finance/services/accounts/cmd:cmd",
+)
