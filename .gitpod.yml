@@ -5,3 +5,6 @@ tasks:
   - name: Build Gazelle
     init: bazelisk build //:gazelle && exit
     openMode: tab-after
+  - name: Install Trunk Linters
+    init: trunk install && exit
+    openMode: tab-after
