@@ -5,8 +5,8 @@ load("@rules_proto//proto:defs.bzl", "proto_library")
 proto_library(
     name = "v1_proto",
     srcs = [
-        "create.proto",
         "service.proto",
+        "transaction.proto",
     ],
     visibility = ["//visibility:public"],
     deps = ["//finance/models:models_proto"],

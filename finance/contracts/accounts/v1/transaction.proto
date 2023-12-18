@@ -4,6 +4,7 @@ option go_package = "github.com/bar-raisers/intention/finance/contracts/accounts
 
 import "finance/models/transaction.proto";
 
+
 message CreateTransactionRequest {
     models.Transaction transaction = 1;
 }
