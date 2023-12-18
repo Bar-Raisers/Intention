@@ -10,9 +10,9 @@ load("@//:.bazel/proto.bzl", "workspace_proto")
 
 workspace_go()
 
+# gazelle:repository_macro .bazel/go.bzl%go_dependencies
+go_dependencies()
+
 workspace_gazelle()
 
 workspace_proto()
-
-# gazelle:repository_macro .bazel/go.bzl%go_dependencies
-go_dependencies()

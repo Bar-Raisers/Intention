@@ -87,7 +87,6 @@ def go_dependencies():
         sum = "h1:1zr/of2m5FGMsad5YfcqgdqdWrIhu+EBEJRhR1U7z/c=",
         version = "v0.5.0",
     )
-
     go_repository(
         name = "com_github_stretchr_testify",
         importpath = "github.com/stretchr/testify",
