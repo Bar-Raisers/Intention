@@ -12,3 +12,11 @@ message CreateTransactionRequest {
 message CreateTransactionResponse {
 
 }
+
+message ListTransactionsRequest {
+
+}
+
+message ListTransactionsResponse {
+    repeated models.Transaction transactions = 1;
+}

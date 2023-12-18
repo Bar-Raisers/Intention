@@ -6,4 +6,5 @@ import "finance/contracts/accounts/v1/transaction.proto";
 
 service AccountsService {
     rpc CreateTransaction(CreateTransactionRequest) returns (CreateTransactionResponse);
+    rpc ListTransactions(ListTransactionsRequest) returns (ListTransactionsResponse);
 }
