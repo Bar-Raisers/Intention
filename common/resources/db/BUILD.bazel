@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "db",
+    srcs = ["datasource.go"],
+    importpath = "github.com/bar-raisers/intention/common/resources/db",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "db_test",
+    srcs = ["datasource_test.go"],
+    embed = [":db"],
+    deps = ["@com_github_stretchr_testify//assert"],
+)
