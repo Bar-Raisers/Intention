@@ -1,0 +1,24 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "models",
+    srcs = ["transaction.go"],
+    importpath = "github.com/bar-raisers/intention/finance/services/accounts/models",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//finance/models",
+        "@io_gorm_gorm//:gorm",
+        "@org_golang_google_protobuf//types/known/timestamppb",
+    ],
+)
+
+go_test(
+    name = "models_test",
+    srcs = ["transaction_test.go"],
+    embed = [":models"],
+    deps = [
+        "//finance/models",
+        "@com_github_stretchr_testify//assert",
+        "@org_golang_google_protobuf//types/known/timestamppb",
+    ],
+)
