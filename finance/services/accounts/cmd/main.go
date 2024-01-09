@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"os"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
@@ -15,7 +16,7 @@ import (
 
 func main() {
 	serviceFlags := services.NewServiceFlags()
-	serviceFlags.Init(nil)
+	serviceFlags.Init(os.Args[1:])
 
 	address := fmt.Sprintf("%s:%d", serviceFlags.GetAddress(), serviceFlags.GetPort())
 	log.Printf("starting accounts service at %s...\n", address)
