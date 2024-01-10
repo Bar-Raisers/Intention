@@ -2,9 +2,16 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 
 go_library(
     name = "db",
-    srcs = ["datasource.go"],
+    srcs = [
+        "connect.go",
+        "datasource.go",
+    ],
     importpath = "github.com/bar-raisers/intention/common/resources/db",
     visibility = ["//visibility:public"],
+    deps = [
+        "@io_gorm_driver_postgres//:postgres",
+        "@io_gorm_gorm//:gorm",
+    ],
 )
 
 go_test(

@@ -2,6 +2,9 @@ package db
 
 import (
 	"fmt"
+
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
 type DataSource struct {
@@ -44,6 +47,11 @@ func (ds *DataSource) BuildDataSourceName() string {
 	dataSourceName += " " + fmt.Sprintf("sslmode=%s", ds.GetSSLMode())
 	dataSourceName += " " + fmt.Sprintf("TimeZone=%s", ds.GetTimezone())
 	return dataSourceName
+}
+
+func (ds *DataSource) CreateDialector() gorm.Dialector {
+	dataSourceName := ds.BuildDataSourceName()
+	return postgres.Open(dataSourceName)
 }
 
 func (ds *DataSource) GetHost() string {
