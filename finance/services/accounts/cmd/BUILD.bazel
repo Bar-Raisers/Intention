@@ -9,8 +9,10 @@ go_library(
     importpath = "github.com/bar-raisers/intention/finance/services/accounts/cmd",
     visibility = ["//visibility:private"],
     deps = [
+        "//common/resources/db",
         "//common/services",
         "//finance/contracts/accounts/v1:accounts",
+        "@io_gorm_gorm//:gorm",
         "@org_golang_google_grpc//:go_default_library",
         "@org_golang_google_grpc//reflection",
     ],
