@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "resources",
+    srcs = [
+        "migration.go",
+        "transaction.go",
+    ],
+    importpath = "github.com/bar-raisers/intention/finance/services/accounts/resources",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//finance/services/accounts/models",
+        "@io_gorm_gorm//:gorm",
+    ],
+)
