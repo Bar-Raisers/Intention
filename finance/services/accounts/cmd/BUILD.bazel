@@ -12,6 +12,7 @@ go_library(
         "//common/resources/db",
         "//common/services",
         "//finance/contracts/accounts/v1:accounts",
+        "//finance/services/accounts/resources",
         "@io_gorm_gorm//:gorm",
         "@org_golang_google_grpc//:go_default_library",
         "@org_golang_google_grpc//reflection",

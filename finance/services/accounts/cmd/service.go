@@ -7,6 +7,8 @@ import (
 
 	"github.com/bar-raisers/intention/common/resources/db"
 	accounts "github.com/bar-raisers/intention/finance/contracts/accounts/v1"
+
+	"github.com/bar-raisers/intention/finance/services/accounts/resources"
 )
 
 type AccountsService struct {
@@ -23,6 +25,7 @@ func NewAccountsService() *AccountsService {
 		"America/Vancouver",
 	)
 	db := db.Connect(dataSource)
+	resources.Migrate(db)
 
 	return &AccountsService{
 		db: db,
