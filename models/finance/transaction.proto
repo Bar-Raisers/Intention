@@ -1,0 +1,12 @@
+syntax = "proto3";
+package finance;
+option go_package = "github.com/bar-raisers/intention/models/finance";
+
+import "google/protobuf/timestamp.proto";
+
+message Transaction {
+  google.protobuf.Timestamp date = 1;
+  string account_id = 2;
+  string payee_id = 3;
+  float amount = 4;
+}

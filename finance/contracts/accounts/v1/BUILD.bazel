@@ -9,7 +9,7 @@ proto_library(
         "transaction.proto",
     ],
     visibility = ["//visibility:public"],
-    deps = ["//finance/models:models_proto"],
+    deps = ["//models/finance:finance_proto"],
 )
 
 go_proto_library(
@@ -18,7 +18,7 @@ go_proto_library(
     importpath = "github.com/bar-raisers/intention/finance/contracts/accounts/v1",
     proto = ":v1_proto",
     visibility = ["//visibility:public"],
-    deps = ["//finance/models"],
+    deps = ["//models/finance"],
 )
 
 go_library(

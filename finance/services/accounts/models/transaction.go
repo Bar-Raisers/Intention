@@ -6,7 +6,7 @@ import (
 	"google.golang.org/protobuf/types/known/timestamppb"
 	"gorm.io/gorm"
 
-	finance_models_pb "github.com/bar-raisers/intention/finance/models"
+	finance_models_pb "github.com/bar-raisers/intention/models/finance"
 )
 
 type Transaction struct {
