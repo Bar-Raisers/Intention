@@ -15,7 +15,7 @@ proto_library(
 go_proto_library(
     name = "v1_go_proto",
     compilers = ["@io_bazel_rules_go//proto:go_grpc"],
-    importpath = "github.com/bar-raisers/intention/finance/contracts/accounts/v1",
+    importpath = "github.com/bar-raisers/intention/contracts/finance/accounts/v1",
     proto = ":v1_proto",
     visibility = ["//visibility:public"],
     deps = ["//models/finance"],
@@ -24,6 +24,6 @@ go_proto_library(
 go_library(
     name = "accounts",
     embed = [":v1_go_proto"],
-    importpath = "github.com/bar-raisers/intention/finance/contracts/accounts/v1",
+    importpath = "github.com/bar-raisers/intention/contracts/finance/accounts/v1",
     visibility = ["//visibility:public"],
 )
