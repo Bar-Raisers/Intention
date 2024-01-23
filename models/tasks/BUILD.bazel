@@ -1,3 +1,4 @@
+load("@golink//proto:proto.bzl", "go_proto_link")
 load("@io_bazel_rules_go//go:def.bzl", "go_library")
 load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
 load("@rules_proto//proto:defs.bzl", "proto_library")
@@ -20,4 +21,10 @@ go_library(
     embed = [":tasks_go_proto"],
     importpath = "github.com/bar-raisers/intention/models/tasks",
     visibility = ["//visibility:public"],
+)
+
+go_proto_link(
+    name = "tasks_go_proto_link",
+    dep = ":tasks_go_proto",
+    version = "v1",
 )
