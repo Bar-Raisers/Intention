@@ -1,5 +1,15 @@
-load("@bazel_gazelle//:def.bzl", "gazelle")
+load("@bazel_gazelle//:def.bzl", "DEFAULT_LANGUAGES", "gazelle", "gazelle_binary")
 
-# gazelle:exclude **/dummy.go
+gazelle_binary(
+    name = "gazelle_binary",
+    languages = DEFAULT_LANGUAGES + [
+        "@golink//gazelle/go_link:go_default_library",
+    ],
+    visibility = ["//visibility:public"],
+)
+
 # gazelle:prefix github.com/bar-raisers/intention
-gazelle(name = "gazelle")
+gazelle(
+    name = "gazelle",
+    gazelle = "//:gazelle_binary",
+)
