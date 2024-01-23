@@ -1,0 +1,9 @@
+syntax = "proto3";
+package tasks;
+
+option go_package = "github.com/bar-raisers/intention/models/tasks";
+
+message Task {
+  string title = 1;
+  string description = 2;
+}
