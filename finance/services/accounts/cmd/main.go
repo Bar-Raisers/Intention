@@ -11,7 +11,7 @@ import (
 
 	"github.com/bar-raisers/intention/common/services"
 
-	accounts "github.com/bar-raisers/intention/finance/contracts/accounts/v1"
+	accounts "github.com/bar-raisers/intention/contracts/finance/accounts/v1"
 )
 
 func main() {

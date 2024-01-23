@@ -8,7 +8,7 @@ import (
 
 	"github.com/bar-raisers/intention/common/resources/db"
 
-	contract_accounts "github.com/bar-raisers/intention/finance/contracts/accounts/v1"
+	contract_accounts "github.com/bar-raisers/intention/contracts/finance/accounts/v1"
 	"github.com/bar-raisers/intention/finance/services/accounts/models"
 	"github.com/bar-raisers/intention/finance/services/accounts/resources"
 	"github.com/bar-raisers/intention/finance/services/accounts/utilities"

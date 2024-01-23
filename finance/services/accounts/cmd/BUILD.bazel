@@ -11,7 +11,7 @@ go_library(
     deps = [
         "//common/resources/db",
         "//common/services",
-        "//finance/contracts/accounts/v1:accounts",
+        "//contracts/finance/accounts/v1:accounts",
         "//finance/services/accounts/models",
         "//finance/services/accounts/resources",
         "//finance/services/accounts/utilities",
