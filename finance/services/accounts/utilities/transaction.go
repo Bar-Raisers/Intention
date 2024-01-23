@@ -1,8 +1,8 @@
 package utilities
 
 import (
-	pb_finance_models "github.com/bar-raisers/intention/finance/models"
 	"github.com/bar-raisers/intention/finance/services/accounts/models"
+	pb_finance_models "github.com/bar-raisers/intention/models/finance"
 )
 
 func ConvertTransactionsToProto(transactions []*models.Transaction) []*pb_finance_models.Transaction {
