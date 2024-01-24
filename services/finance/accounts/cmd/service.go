@@ -9,9 +9,9 @@ import (
 	"github.com/bar-raisers/intention/common/resources/db"
 
 	contract_accounts "github.com/bar-raisers/intention/contracts/finance/accounts/v1"
-	"github.com/bar-raisers/intention/finance/services/accounts/models"
-	"github.com/bar-raisers/intention/finance/services/accounts/resources"
-	"github.com/bar-raisers/intention/finance/services/accounts/utilities"
+	"github.com/bar-raisers/intention/services/finance/accounts/models"
+	"github.com/bar-raisers/intention/services/finance/accounts/resources"
+	"github.com/bar-raisers/intention/services/finance/accounts/utilities"
 )
 
 type AccountsService struct {
