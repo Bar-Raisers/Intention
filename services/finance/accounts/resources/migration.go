@@ -5,7 +5,7 @@ import (
 
 	"gorm.io/gorm"
 
-	"github.com/bar-raisers/intention/finance/services/accounts/models"
+	"github.com/bar-raisers/intention/services/finance/accounts/models"
 )
 
 func Migrate(db *gorm.DB) {
