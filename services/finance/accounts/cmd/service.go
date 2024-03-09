@@ -4,6 +4,8 @@ import (
 	"context"
 	"fmt"
 
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	"gorm.io/gorm"
 
 	"github.com/bar-raisers/intention/common/resources/db"
@@ -51,6 +53,24 @@ func (service *AccountsService) CreateTransaction(
 	}
 
 	return &contract_accounts.CreateTransactionResponse{}, nil
+}
+
+func (service *AccountsService) DeleteTransaction(
+	ctx context.Context,
+	request *contract_accounts.DeleteTransactionRequest,
+) (*contract_accounts.DeleteTransactionResponse, error) {
+	transaction_id := request.GetTransactionId()
+
+	if transaction_id == 0 {
+		return nil, fmt.Errorf("no transaction_id provided in deletion request")
+	}
+
+	if transaction_id < 0 {
+		return nil, fmt.Errorf("transaction_id must be a positive value")
+	}
+
+	_ = resources.DeleteTransaction(service.db, uint(transaction_id))
+	return &contract_accounts.DeleteTransactionResponse{}, status.Error(codes.NotFound, "")
 }
 
 func (service *AccountsService) ListTransactions(
