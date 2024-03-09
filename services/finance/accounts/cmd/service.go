@@ -85,3 +85,26 @@ func (service *AccountsService) ListTransactions(
 	}
 	return response, nil
 }
+
+func (service *AccountsService) UpdateTransaction(
+	ctx context.Context,
+	request *contract_accounts.UpdateTransactionRequest,
+) (*contract_accounts.UpdateTransactionResponse, error) {
+	transaction_pb := request.GetTransaction()
+
+	if transaction_pb == nil {
+		return nil, fmt.Errorf("no transaction provided")
+	}
+
+	if transaction_pb.GetTransactionId() <= 0 {
+		return nil, fmt.Errorf("invalid transaction_id")
+	}
+
+	transaction := models.NewTransactionFromProto(transaction_pb)
+	err := resources.UpdateTransaction(service.db, transaction)
+	if err != nil {
+		return nil, err
+	}
+
+	return &contract_accounts.UpdateTransactionResponse{}, nil
+}
