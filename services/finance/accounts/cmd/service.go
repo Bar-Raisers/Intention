@@ -46,6 +46,10 @@ func (service *AccountsService) CreateTransaction(
 		return nil, fmt.Errorf("no transaction provided")
 	}
 
+	if transaction_pb.GetTransactionId() != 0 {
+		return nil, fmt.Errorf("unexpected transaction_id in creation request")
+	}
+
 	transaction := models.NewTransactionFromProto(transaction_pb)
 	err := resources.CreateTransaction(service.db, transaction)
 	if err != nil {
