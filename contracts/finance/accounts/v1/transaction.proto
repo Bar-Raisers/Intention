@@ -8,11 +8,21 @@ option go_package = "github.com/bar-raisers/intention/contracts/finance/accounts
 message CreateTransactionRequest {
   finance.Transaction transaction = 1;
 }
-
 message CreateTransactionResponse {}
 
-message ListTransactionsRequest {}
+message DeleteTransactionRequest {
+  uint32 transaction_id = 1;
+}
+message DeleteTransactionResponse {}
 
+message ListTransactionsRequest {}
 message ListTransactionsResponse {
   repeated finance.Transaction transactions = 1;
+}
+
+message UpdateTransactionRequest {
+  finance.Transaction transaction = 1;
+}
+message UpdateTransactionResponse {
+  finance.Transaction transaction = 1;
 }

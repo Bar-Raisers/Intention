@@ -19,12 +19,14 @@ type Transaction struct {
 }
 
 func NewTransaction(
+	transaction_id uint,
 	date time.Time,
 	accountId string,
 	payeeId string,
 	amount float32,
 ) *Transaction {
 	return &Transaction{
+		Model:     gorm.Model{ID: transaction_id},
 		Date:      date,
 		AccountId: accountId,
 		PayeeId:   payeeId,
@@ -34,6 +36,7 @@ func NewTransaction(
 
 func NewTransactionFromProto(transaction *finance_models_pb.Transaction) *Transaction {
 	return NewTransaction(
+		uint(transaction.GetTransactionId()),
 		transaction.GetDate().AsTime(),
 		transaction.GetAccountId(),
 		transaction.GetPayeeId(),
@@ -43,9 +46,10 @@ func NewTransactionFromProto(transaction *finance_models_pb.Transaction) *Transa
 
 func (t *Transaction) ToProto() *finance_models_pb.Transaction {
 	return &finance_models_pb.Transaction{
-		Date:      timestamppb.New(t.Date),
-		AccountId: t.AccountId,
-		PayeeId:   t.PayeeId,
-		Amount:    t.Amount,
+		TransactionId: uint32(t.ID),
+		Date:          timestamppb.New(t.Date),
+		AccountId:     t.AccountId,
+		PayeeId:       t.PayeeId,
+		Amount:        t.Amount,
 	}
 }

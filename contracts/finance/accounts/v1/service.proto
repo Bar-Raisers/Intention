@@ -7,5 +7,7 @@ option go_package = "github.com/bar-raisers/intention/contracts/finance/accounts
 
 service AccountsService {
   rpc CreateTransaction(CreateTransactionRequest) returns (CreateTransactionResponse);
+  rpc DeleteTransaction(DeleteTransactionRequest) returns (DeleteTransactionResponse);
   rpc ListTransactions(ListTransactionsRequest) returns (ListTransactionsResponse);
+  rpc UpdateTransaction(UpdateTransactionRequest) returns (UpdateTransactionResponse);
 }
